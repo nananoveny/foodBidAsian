@@ -1,27 +1,44 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { login } from "./hooks/useService";
+import { signin } from "./hooks/useService";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import useAuthenticate from "../../stores/authenticate.js";
+import { API_ENDPOINT } from "../../config/constants.js";
+import { getRequest, postRequest } from "../../utils/api";
 const Login = () => {
   const navigate = useNavigate();
+  const login = useAuthenticate((state) => state.login);
 
   const [userInfo, setUserRegister] = useState({
     username: "",
     password: "",
   });
+  console.log(JSON.parse(localStorage.getItem("@authenticate")));
 
-  const handleCreateAccount = () => {
+  const handleLogin = async (event) => {
+    event.preventDefault();
+
     if (!!userInfo.password && !!userInfo.username) {
-      login(userInfo);
-      toast.success("Success");
+      try {
+        const res = await postRequest(API_ENDPOINT.LOGIN, { ...userInfo });
+        console.log(res);
+        login({
+          profile: {
+            user_id: userInfo.username,
+            access_token: res?.data?.token,
+          },
+        });
+        toast.success("Success");
+        navigate("/home");
+      } catch (error) {
+        toast.error("Error");
+      }
     } else {
       toast.error("Error");
     }
   };
 
-  console.log(login(userInfo));
   return (
     <>
       <div>
@@ -57,7 +74,7 @@ const Login = () => {
               <button
                 type='submit'
                 className='w-full text-center py-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1'
-                onClick={handleCreateAccount}
+                onClick={handleLogin}
               >
                 Login
               </button>

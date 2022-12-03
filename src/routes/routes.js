@@ -18,7 +18,7 @@ const routes = [
     element: loadable(() => import("../pages/Discussion/DetailDiscussion.jsx")),
   },
   {
-    path: "/poll",
+    path: "/vote",
     element: loadable(() => import("../pages/Poll/Poll.jsx")),
   },
   {
@@ -32,6 +32,14 @@ const routes = [
   {
     path: "/user-wall",
     element: loadable(() => import("../pages/UserWall/UserWall.jsx")),
+  },
+  {
+    path: "/youth-forum",
+    element: loadable(() => import("../pages/YouthForum/YouthForum.jsx")),
+  },
+  {
+    path: "/foodbid",
+    element: loadable(() => import("../pages/FoodBid/FoodBid.jsx")),
   },
 ];
 

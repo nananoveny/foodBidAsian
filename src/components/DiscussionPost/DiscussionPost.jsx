@@ -3,27 +3,92 @@ import { useNavigate } from "react-router-dom";
 
 const DiscussionPost = ({ post }) => {
   const navigate = useNavigate();
-
+  console.log(post);
   return (
-    <div className='flex p-5  items-start'>
+    // <div className='max-w-sm bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 w-96 h-[420px] mt-10 hover:scale-105'>
+    //   <img
+    //     className='rounded-t-lg'
+    //     src={
+    //       !!post?.postpicture
+    //         ? post?.postpicture
+    //         : "https://www.healthyeating.org/images/default-source/home-0.0/nutrition-topics-2.0/general-nutrition-wellness/2-2-2-3foodgroups_fruits_detailfeature.jpg?sfvrsn=64942d53_4"
+    //     }
+    //     alt=''
+    //   />
+    //   <div className='p-5'>
+    //     <a href='#'>
+    //       <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white'>
+    //         {post?.title}
+    //       </h5>
+    //     </a>
+    //     <div>
+    //       <span className='font-bold italic'>Create at: </span>
+    //       <span className='font-bold italic'>{post?.createdAt}</span>
+    //     </div>
+    //     <p className='mb-3 font-normal text-gray-700 dark:text-gray-400'>
+    //       {post?.content}
+    //     </p>
+    //     <button
+    //       className='inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
+    //       onClick={() => navigate(`/discussions/${post?.id}`)}
+    //     >
+    //       Read more
+    //     </button>
+    //   </div>
+    // </div>
+    <div className=' rounded overflow-hidden border w-[800px]  bg-white mx-3 md:mx-0 lg:mx-0'>
+      <div className='w-2/3 flex justify-between p-3'>
+        <div className='flex'>
+          <div className='rounded-full h-8 w-8 bg-gray-500 flex items-center justify-center overflow-hidden'>
+            <img
+              src={
+                !!post?.owner?.avatar
+                  ? post?.owner?.avatar
+                  : "https://img.freepik.com/free-icon/user_318-790139.jpg?w=2000"
+              }
+              alt='profilepic'
+            />
+          </div>
+          <span className='pt-1 ml-2 font-bold text-sm'>
+            {post?.owner?.name}
+          </span>
+        </div>
+        <span className='px-2 hover:bg-gray-300 cursor-pointer rounded'>
+          <i className='fas fa-ellipsis-h pt-2 text-lg'></i>
+        </span>
+      </div>
       <img
-        src='https://www.healthyeating.org/images/default-source/home-0.0/nutrition-topics-2.0/general-nutrition-wellness/2-2-2-3foodgroups_fruits_detailfeature.jpg?sfvrsn=64942d53_4'
-        className='rounded-2xl object-cover h-[300px] w-[300px] cursor-pointer'
+        src={
+          !!post?.postpicture
+            ? post?.postpicture
+            : "https://www.healthyeating.org/images/default-source/home-0.0/nutrition-topics-2.0/general-nutrition-wellness/2-2-2-3foodgroups_fruits_detailfeature.jpg?sfvrsn=64942d53_4"
+        }
+        className='w-full bg-cover'
       />
-      <div className='flex flex-col justify-center items-start px-5 space-y-5 w-2/3'>
-        <span
-          className='font-bold py-5 px-10 mx-5 bg-[#eeebe3] rounded-lg text-3xl cursor-pointer'
+      <div className='px-3 pb-2'>
+        <div className='pt-2'>
+          <i className='far fa-heart cursor-pointer'></i>
+          <span className='text-sm text-gray-400 font-medium'>12 likes</span>
+        </div>
+        <div className='pt-1'>
+          <div className='mb-2 text-sm'>
+            <span className='font-medium mr-2'>braydoncoyer</span>
+            {post?.content}
+          </div>
+        </div>
+        <div
+          className='text-sm mb-2 text-gray-400 cursor-pointer font-medium'
           onClick={() => navigate(`/discussions/${post?.id}`)}
         >
-          FoodBid.ASEAN
-        </span>
-        <span className='font-bold italic text-left px-5'>FoodBid.ASEAN</span>
-        <div className='flex'>
-          <span className='font-bold px-5'>Create at: </span>
-          <span className='font-bold px-5'>{post?.createdAt}</span>
+          View all comments
         </div>
-
-        <span className='text-left px-5'>{post?.caption}</span>
+        <div className='mb-2'>
+          <div className='mb-2 text-sm'>
+            <span className='font-medium mr-2'>razzle_dazzle</span> Dude! How
+            cool! I went to New Zealand last summer and had a blast taking the
+            tour! So much to see! Make sure you bring a good camera when you go!
+          </div>
+        </div>
       </div>
     </div>
   );

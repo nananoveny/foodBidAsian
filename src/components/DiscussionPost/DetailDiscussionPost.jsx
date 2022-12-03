@@ -10,8 +10,9 @@ import { useQueryDetailPost } from "./hooks/useService";
 const DetailDiscussionPost = () => {
   const { postId } = useParams();
   const { data } = useQueryDetailPost(postId);
-  console.log(data?.data);
   const navigate = useNavigate();
+  
+  console.log(data?.data);
   return (
     <>
       <div className='flex flex-col justify-center p-5  items-center space-y-10'>
@@ -30,17 +31,21 @@ const DetailDiscussionPost = () => {
           <div className='flex justify-start items-center px-5 space-x-2'>
             <span className='font-bold'>Create by: </span>
             <img
-              src='https://s.meta.com.vn/img/thumb.ashx/Data/image/2021/08/03/avatar-doi-avatar-cap-avatar-doi-nguoi-that-dang-facebook-cuc-chat-29.jpg'
+              src={
+                !!data?.data?.postpicture
+                  ? data?.data?.postpicture
+                  : "https://img.freepik.com/free-icon/user_318-790139.jpg?w=2000"
+              }
               alt=''
               height={40}
               width={40}
               className='rounded-full cursor-pointer'
               onClick={() => navigate("/user-wall")}
             />
-            <span className='font-bold'>{data?.data?.owner.name}</span>
+            <span className='font-bold'>{data?.data?.owner?.name}</span>
             <span className='font-bold'>{data?.data?.createdAt}</span>
           </div>
-          <span className='text-left px-5'>{data?.data?.caption}</span>
+          <span className='text-left px-5'>{data?.data?.content}</span>
         </div>
       </div>
       <Comments comments={data?.data?.comment} />
