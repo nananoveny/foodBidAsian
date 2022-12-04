@@ -11,8 +11,7 @@ const DetailDiscussionPost = () => {
   const { postId } = useParams();
   const { data } = useQueryDetailPost(postId);
   const navigate = useNavigate();
-  
-  console.log(data?.data);
+
   return (
     <>
       <div className='flex flex-col justify-center p-5  items-center space-y-10'>

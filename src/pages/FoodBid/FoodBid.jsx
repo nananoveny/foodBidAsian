@@ -1,7 +1,7 @@
 import React from "react";
 import AuctionPost from "./DefaultPost/AuctionPost";
 import BiddingPost from "./DefaultPost/BiddingPost";
-import BuissinessMatching from "./DefaultPost/BuissinessMatching";
+import BuissinessMatching from "./DefaultPost/BussinessMatching";
 import { Animate, AnimateGroup } from "react-simple-animate";
 
 const FoodBid = () => {

@@ -41,6 +41,28 @@ const routes = [
     path: "/foodbid",
     element: loadable(() => import("../pages/FoodBid/FoodBid.jsx")),
   },
+  {
+    path: "/foodbid/auction",
+    element: loadable(() =>
+      import("../pages/FoodBid/DefaultPost/DetailAuctionPost.jsx")
+    ),
+  },
+  {
+    path: "/foodbid/bidding",
+    element: loadable(() =>
+      import("../pages/FoodBid/DefaultPost/DetailBiddingPost.jsx")
+    ),
+  },
+  {
+    path: "/foodbid/bussiness-matching",
+    element: loadable(() =>
+      import("../pages/FoodBid/DefaultPost/DetailBussinessMatching.jsx")
+    ),
+  },
+  {
+    path: "/contact-us",
+    element: loadable(() => import("../pages/ContactInfo/ContactInfo.jsx")),
+  },
 ];
 
 // const unauthorizedRoutes = [

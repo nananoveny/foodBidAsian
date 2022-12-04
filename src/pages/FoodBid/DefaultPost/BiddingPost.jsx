@@ -1,9 +1,15 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import biddingImage from "../../../assets/Bidding.jpeg";
 
 const BiddingPost = () => {
+  const navigate = useNavigate();
+
   return (
-    <div class='mx-auto px-4 py-8 max-w-xl my-20 hover:scale-105 cursor-pointer'>
+    <div
+      class='mx-auto px-4 py-8 max-w-xl my-20 hover:scale-105 cursor-pointer'
+      onClick={() => navigate("/foodbid/bidding")}
+    >
       <div class='bg-white shadow-2xl rounded-lg mb-6 tracking-wide'>
         <div class='md:flex-shrink-0'>
           <img
@@ -14,7 +20,7 @@ const BiddingPost = () => {
         </div>
         <div class='px-4 py-2 mt-2'>
           <h2 class='font-bold text-2xl text-gray-800 tracking-normal'>
-            Auction
+            Bidding
           </h2>
           <p class='text-sm text-gray-700 px-2 mr-1'>
             For the first time, bidding and auction will be applied

@@ -28,7 +28,6 @@ const SignUp = () => {
       toast.error("Error");
     }
   };
-  console.log(userRegister);
   return (
     <>
       <div>

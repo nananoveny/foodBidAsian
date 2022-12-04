@@ -22,7 +22,6 @@ const Login = () => {
     if (!!userInfo.password && !!userInfo.username) {
       try {
         const res = await postRequest(API_ENDPOINT.LOGIN, { ...userInfo });
-        console.log(res);
         login({
           profile: {
             user_id: userInfo.username,
@@ -31,8 +30,8 @@ const Login = () => {
         });
         toast.success("Success");
         navigate("/home");
-      } catch (error) {
-        toast.error("Error");
+      } catch ({ response }) {
+        toast.error(response?.data?.message);
       }
     } else {
       toast.error("Error");

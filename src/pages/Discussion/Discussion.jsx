@@ -6,11 +6,15 @@ import Banner from "./components/Banner";
 import { getPosts, useQueryPosts } from "./hooks/useService";
 import { Animate, AnimateGroup } from "react-simple-animate";
 import ShortCut from "../../components/ShortCut/ShortCut.jsx";
+import CreatePost from "./components/CreatePost";
 const Discusion = () => {
-  const { data } = useQueryPosts();
+  const { data } = useQueryPosts() ?? {};
+  console.log(data);
   return (
     <div className='flex justify-center flex-wrap items-center flex-col space-y-10'>
-        {data?.data?.map((post, index) => (
+      <CreatePost />
+      {data?.data ??
+        []?.map((post, index) => (
           <Animate
             start={{ opacity: 0 }}
             end={{ opacity: 1 }}

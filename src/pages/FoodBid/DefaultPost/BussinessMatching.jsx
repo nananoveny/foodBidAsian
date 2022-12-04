@@ -1,9 +1,15 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import bussinessMatchingImage from "../../../assets/businessMatching.jpeg";
 
-const BuissinessMatching = () => {
+const BussinessMatching = () => {
+  const navigate = useNavigate();
+
   return (
-    <div class='mx-auto px-4 py-8 max-w-xl my-20 hover:scale-105 cursor-pointer'>
+    <div
+      class='mx-auto px-4 py-8 max-w-xl my-20 hover:scale-105 cursor-pointer'
+      onClick={() => navigate("/foodbid/bussiness-matching")}
+    >
       <div class='bg-white shadow-2xl rounded-lg mb-6 tracking-wide'>
         <div class='md:flex-shrink-0'>
           <img
@@ -61,4 +67,4 @@ const BuissinessMatching = () => {
   );
 };
 
-export default BuissinessMatching;
+export default BussinessMatching;

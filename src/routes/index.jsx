@@ -4,7 +4,6 @@ import routes from "./routes";
 
 const Router = () => {
   //   const isLogin = useAuthenticate((state) => state.isLogin);
-  //   console.log(isLogin);
 
   return (
     <Routes>

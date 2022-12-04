@@ -44,7 +44,7 @@ const Header = () => {
         </span>
         <span
           className='font-bold cursor-pointer'
-          onClick={() => navigate("/poll")}
+          onClick={() => navigate("/contact-us")}
         >
           Contact Us
         </span>

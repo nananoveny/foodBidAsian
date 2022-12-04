@@ -30,9 +30,10 @@ const request = (method, url, params) => {
   });
 };
 
-export const postRequest = (url, payload) => {
+export const postRequest = (url, payload, extraHeaders) => {
   return request("POST", url, {
     data: payload,
+    headers: extraHeaders,
   });
 };
 
