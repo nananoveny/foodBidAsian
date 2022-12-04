@@ -11,7 +11,7 @@ const Discusion = () => {
   const { data } = useQueryPosts() ?? {};
   console.log(data);
   return (
-    <div className='flex justify-center flex-wrap items-center flex-col space-y-10'>
+    <div className='flex flex-wrap items-center flex-col space-y-10 min-h-screen'>
       <CreatePost />
       {data?.data ??
         []?.map((post, index) => (

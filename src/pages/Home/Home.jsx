@@ -15,7 +15,7 @@ const Home = () => {
       <div className='flex flex-col pb-16 px-5 w-1/2 space-y-10'>
         <div className='flex flex-col'>
           <span className='font-bold'>About us</span>
-          <p>
+          <p className='text-justify'>
             FoodBid.ASEAN is an innovative e-commerce trading platform with the
             mission is to bring convenience to farmers who mainly depend on
             agricultural products, open opportunities to diversify and guarantee
@@ -27,7 +27,7 @@ const Home = () => {
         </div>
         <div className='flex flex-col'>
           <span className='font-bold'>What We Do?</span>
-          <p>
+          <p className='text-justify'>
             The groundbreaking tool is designed to help farmers promote their
             agricultural products, look for their promising buyers, and thus,
             maximize profit transparently, actively, and effectively. In this
@@ -40,7 +40,7 @@ const Home = () => {
         </div>
         <div className='flex flex-col'>
           <span className='font-bold'>Why Work With Us?</span>
-          <p>
+          <p className='text-justify'>
             The project was born to be not only a start-up smart focusing on
             training course aims to develop knowledge and practical skills to
             turn agriculture business ideas into reality by combining lectures,

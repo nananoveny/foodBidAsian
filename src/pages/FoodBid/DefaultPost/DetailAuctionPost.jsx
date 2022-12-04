@@ -18,7 +18,7 @@ const DetailAuctionPost = () => {
           <div className='flex justify-start items-center px-5 space-x-2'>
             <span className='font-bold'>Packages under 5 billion VND:</span>
           </div>
-          <span className='text-left px-5'>
+          <span className='text-justify px-5'>
             For the first time, bidding and auction will be applied
             simultaneously for the sake of farmers. To eliminate the affection
             of collectors or third-party buyers for black purposes. The

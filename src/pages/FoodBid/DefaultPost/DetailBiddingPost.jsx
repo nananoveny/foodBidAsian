@@ -18,7 +18,7 @@ const DetailBiddingPost = () => {
           <div className='flex justify-start items-center px-5 space-x-2'>
             <span className='font-bold'>Packages exceeding 5 billion VND:</span>
           </div>
-          <span className='text-left px-5'>
+          <span className='text-justify px-5'>
             The distinctive figure that makes it remarkable is the combination
             of tender and auction. The proposal will be completely confidential
             until the final result. In contrast to the typical bidding process,
@@ -29,7 +29,7 @@ const DetailBiddingPost = () => {
             to manipulate the market for revenue regardless of social and
             ethical facets.
           </span>
-          <span className='text-left px-5'>
+          <span className='text-justify px-5'>
             The transaction will be guarantee by a term of contract penalty in
             which either side has to pay 8% of the total contract value if they
             fail to perform the signed contract (according to Vietnam tender
@@ -37,10 +37,10 @@ const DetailBiddingPost = () => {
             ability to make their deals that compatible to their investment,
             sweat, and tears.
           </span>
-          <span className='text-left px-5'>
+          <span className='text-justify px-5'>
             The general process will follow the below-mentioned key stages:
           </span>
-          <div className='ml-16'>
+          <div className='ml-16 text-justify'>
             <ol className='list-decimal'>
               <li>
                 Agriculture products have to be examined and qualified according

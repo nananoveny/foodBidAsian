@@ -21,7 +21,7 @@ const DetailBussinessMatching = () => {
           <div className='flex justify-start items-center px-5 space-x-2'>
             {/* <span className='font-bold'>Packages under 5 billion VND:</span> */}
           </div>
-          <span className='text-left px-5'>
+          <span className='text-justify px-5'>
             FoodBid.ASEAN also offers business matching for agriculture produce
             via our interacting platform. Users have full access to their
             potential customers’ information including produce catalogs,
