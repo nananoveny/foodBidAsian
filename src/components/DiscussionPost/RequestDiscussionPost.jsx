@@ -3,7 +3,7 @@ import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import useAuthenticate from "../../stores/authenticate";
 
-const DiscussionPost = ({ post }) => {
+const RequestDiscussionPost = ({ post }) => {
   const navigate = useNavigate();
   const { isLogin, profile } = useAuthenticate((state) => state);
 
@@ -20,14 +20,16 @@ const DiscussionPost = ({ post }) => {
 
   const approvePost = async (postId, accessToken) => {
     await axios.post(
-      "https://freelance-job-be-production.up.railway.app/post/" + postId,
+      "https://freelance-job-be-production.up.railway.app/post/post-request/" +
+        postId +
+        "/approve",
       {
         headers: {
           Authorization: "Bearer " + accessToken,
         },
       }
     );
-  }
+  };
 
   console.log(post);
   return (
@@ -91,7 +93,7 @@ const DiscussionPost = ({ post }) => {
         </div> */}
         </div>
       </div>
-      <div className="space-x-2">
+      <div className='space-x-2'>
         {profile?.isAdmin && (
           <button
             className='bg-red-600 p-2 px-5 rounded text-white'
@@ -103,7 +105,7 @@ const DiscussionPost = ({ post }) => {
         {profile?.isAdmin && (
           <button
             className='bg-green p-2 px-5 rounded text-white'
-            // onClick={() => deletePost(post?.id, profile?.access_token)}
+            onClick={() => approvePost(profile?.access_token)}
           >
             Approve
           </button>
@@ -113,4 +115,4 @@ const DiscussionPost = ({ post }) => {
   );
 };
 
-export default DiscussionPost;
+export default RequestDiscussionPost;

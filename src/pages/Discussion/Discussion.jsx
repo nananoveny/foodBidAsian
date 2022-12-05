@@ -7,23 +7,25 @@ import { getPosts, useQueryPosts } from "./hooks/useService";
 import { Animate, AnimateGroup } from "react-simple-animate";
 import ShortCut from "../../components/ShortCut/ShortCut.jsx";
 import CreatePost from "./components/CreatePost";
+import useAuthenticate from "../../stores/authenticate";
 const Discusion = () => {
-  const { data } = useQueryPosts() ?? {};
+  const { data } = useQueryPosts();
   console.log(data);
+  const { isLogin } = useAuthenticate((state) => state);
+
   return (
     <div className='flex flex-wrap items-center flex-col space-y-10 min-h-screen'>
-      <CreatePost />
-      {data?.data ??
-        []?.map((post, index) => (
-          <Animate
-            start={{ opacity: 0 }}
-            end={{ opacity: 1 }}
-            sequenceIndex={index}
-            play
-          >
-            <DiscussionPost post={post} />
-          </Animate>
-        ))}
+      {isLogin && <CreatePost />}
+      {data?.data?.map((post, index) => (
+        <Animate
+          start={{ opacity: 0 }}
+          end={{ opacity: 1 }}
+          sequenceIndex={index}
+          play
+        >
+          <DiscussionPost post={post} />
+        </Animate>
+      ))}
     </div>
   );
 };

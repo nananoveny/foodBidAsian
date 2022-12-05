@@ -63,6 +63,18 @@ const routes = [
     path: "/contact-us",
     element: loadable(() => import("../pages/ContactInfo/ContactInfo.jsx")),
   },
+  {
+    path: "/user-profile",
+    element: loadable(() => import("../pages/UserProfile/UserProfile.jsx")),
+  },
+  {
+    path: "/user-posts",
+    element: loadable(() => import("../pages/UserPost/UserPost.jsx")),
+  },
+  {
+    path: "/request-posts",
+    element: loadable(() => import("../pages/RequestPost/RequestPost.jsx")),
+  },
 ];
 
 // const unauthorizedRoutes = [

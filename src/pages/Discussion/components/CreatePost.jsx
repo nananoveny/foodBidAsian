@@ -31,7 +31,6 @@ const CreatePost = () => {
     }
   };
 
-  const approvePost = () => {};
   async function handleUpload(event) {
     event.preventDefault();
     if (!file) {
@@ -39,7 +38,7 @@ const CreatePost = () => {
     }
     const storageRef = ref(storage, `${file.name}`);
     const uploadTask = uploadBytesResumable(storageRef, file);
-    uploadTask.on(
+     uploadTask.on(
       "state_changed",
       (snapshot) => {
         const percent = Math.round(
@@ -54,13 +53,14 @@ const CreatePost = () => {
         // download url
         getDownloadURL(uploadTask.snapshot.ref).then((url) => {
           setImgUrl(url);
-          
+          console.log(url);
+          uploadPost(content, url, profile?.access_token);
         });
-        uploadPost(content, imgUrl, profile?.access_token);
       }
     );
+    // console.log(imgUrl);
     // await uploadPost(content, imgUrl, profile?.access_token);
-    await window.location.reload();
+    // await window.location.reload();
   }
   console.log(post);
   return (
@@ -73,7 +73,7 @@ const CreatePost = () => {
           placeholder='Write here...'
           onChange={(e) => setContent(e.target.value)}
         />
-        {/* <p>{percent} "% done"</p> */}
+        <p>{percent} "% done"</p>
         <div className='flex space-x-5 justify-between '>
           <input
             type='file'

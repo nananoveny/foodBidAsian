@@ -15,6 +15,8 @@ const Login = () => {
     password: "",
   });
   console.log(JSON.parse(localStorage.getItem("@authenticate")));
+  const hasAdmin =
+    userInfo?.username === "admin" && userInfo?.password === "123456";
 
   const handleLogin = async (event) => {
     event.preventDefault();
@@ -22,10 +24,17 @@ const Login = () => {
     if (!!userInfo.password && !!userInfo.username) {
       try {
         const res = await postRequest(API_ENDPOINT.LOGIN, { ...userInfo });
+        console.log(res);
         login({
           profile: {
             user_id: userInfo.username,
             access_token: res?.data?.token,
+            user_avatar: res?.data?.user?.avatar,
+            user_email: res?.data?.user?.email,
+            user_id: res?.data?.user?.id,
+            user_firstName: res?.data?.user?.firstName,
+            user_lastName: res?.data?.user?.lastName,
+            isAdmin: hasAdmin,
           },
         });
         toast.success("Success");
