@@ -16,6 +16,7 @@ const RequestDiscussionPost = ({ post }) => {
         },
       }
     );
+    await window.location.reload();
   };
 
   const approvePost = async (postId, accessToken) => {
@@ -23,15 +24,17 @@ const RequestDiscussionPost = ({ post }) => {
       "https://freelance-job-be-production.up.railway.app/post/post-request/" +
         postId +
         "/approve",
+      {},
       {
         headers: {
           Authorization: "Bearer " + accessToken,
         },
       }
     );
+    await window.location.reload();
   };
 
-  console.log(post);
+  console.log(profile);
   return (
     <div className='space-y-2'>
       <div className='rounded overflow-hidden border w-[800px]  bg-white mx-3 md:mx-0 lg:mx-0'>
@@ -105,7 +108,7 @@ const RequestDiscussionPost = ({ post }) => {
         {profile?.isAdmin && (
           <button
             className='bg-green p-2 px-5 rounded text-white'
-            onClick={() => approvePost(profile?.access_token)}
+            onClick={() => approvePost(post?.id, profile?.access_token)}
           >
             Approve
           </button>

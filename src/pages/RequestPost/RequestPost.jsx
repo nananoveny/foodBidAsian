@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Animate } from "react-simple-animate";
-import RequestDiscussionPost from "../../components/DiscussionPost/DiscussionPost";
+import RequestDiscussionPost from "../../components/DiscussionPost/RequestDiscussionPost";
 import useAuthenticate from "../../stores/authenticate";
 
 const RequestPost = () => {

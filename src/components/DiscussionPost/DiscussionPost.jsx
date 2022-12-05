@@ -7,17 +7,17 @@ const DiscussionPost = ({ post }) => {
   const navigate = useNavigate();
   const { isLogin, profile } = useAuthenticate((state) => state);
 
-  const deletePost = async (postId, accessToken) => {
-    await axios.delete(
-      "https://freelance-job-be-production.up.railway.app/post/" + postId,
-      {
-        headers: {
-          Authorization: "Bearer " + accessToken,
-        },
-      }
-    );
-  };
-
+   const deletePost = async (postId, accessToken) => {
+     await axios.delete(
+       "https://freelance-job-be-production.up.railway.app/post/" + postId,
+       {
+         headers: {
+           Authorization: "Bearer " + accessToken,
+         },
+       }
+     );
+     await window.location.reload();
+   };
   const approvePost = async (postId, accessToken) => {
     await axios.post(
       "https://freelance-job-be-production.up.railway.app/post/" + postId,
@@ -100,14 +100,14 @@ const DiscussionPost = ({ post }) => {
             Delete
           </button>
         )}
-        {profile?.isAdmin && (
+        {/* {profile?.isAdmin && (
           <button
             className='bg-green p-2 px-5 rounded text-white'
             // onClick={() => deletePost(post?.id, profile?.access_token)}
           >
             Approve
           </button>
-        )}
+        )} */}
       </div>
     </div>
   );
